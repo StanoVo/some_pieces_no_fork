@@ -1,0 +1,5 @@
+[repository]
+REGISTRY_NAME = "stanovo"
+REPOSITORY_NAME = "some_pieces_no_fork"
+REPOSITORY_LABEL = "SoMES - SV testing"
+VERSION = "0.1.0"

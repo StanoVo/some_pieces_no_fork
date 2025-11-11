@@ -1,0 +1,19 @@
+{
+    "group0": {
+        "dependency": {
+            "dockerfile": null,
+            "requirements_file": null
+        },
+        "pieces": [
+            "PreprocessSolargisPiece",
+            "EvaluateAndPlotPiece",
+            "TrainXGBoostPiece",
+            "RegisterModelPiece",
+            "FetchSolargisDataPiece",
+            "RunSolarForecastPiece",
+            "NotifyTeamPiece"
+        ],
+        "secrets": [],
+        "source_image": "ghcr.io/stanovo/somes-pieces-sv:0.1.2-group0"
+    }
+}

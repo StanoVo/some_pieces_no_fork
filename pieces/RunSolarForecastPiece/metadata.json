@@ -1,0 +1,22 @@
+{
+    "name": "RunSolarForecastPiece",
+    "description": "Generates next-day solar forecast",
+    "dependencies_group":  "0",
+    "container_resources": {
+        "requests": {
+            "cpu": 100,
+            "memory": 128
+        },
+        "limits": {
+            "cpu": 500,
+            "memory": 512
+        }
+    },
+    "tags": [
+        "Solar forecast"
+    ],
+    "style": {
+        "node_label": "Run Solar Forecast Piece",
+        "icon_class_name": "fa-solid:database"
+    }
+}
