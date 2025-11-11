@@ -5,29 +5,32 @@
             "dockerfile": null,
             "requirements_file": null
         },
-        "tags": [],
+        "tags": [
+            "Solargis"
+        ],
         "style": {
-            "node_label": "Piece",
+            "node_label": "Preprocess Solargis Piece",
             "node_type": "default",
             "node_style": {
                 "backgroundColor": "#ebebeb"
             },
             "useIcon": true,
-            "icon_class_name": "fa-solid fa-circle",
+            "icon_class_name": "fa-solid:database",
             "iconStyle": {
                 "cursor": "pointer"
             }
         },
-        "outputs": {
-            "message": "str",
-            "output_file": "str",
-            "processed_rows": "int"
-        },
-        "dependencies_group": "0",
         "description": "Preprocess Solargis data",
-        "inputs": {
-            "output_path": "str",
-            "input_path": "str"
+        "dependencies_group": "0",
+        "container_resources": {
+            "requests": {
+                "cpu": 100,
+                "memory": 128
+            },
+            "limits": {
+                "cpu": 500,
+                "memory": 512
+            }
         },
         "input_schema": {
             "properties": {
@@ -71,7 +74,7 @@
             "type": "object"
         },
         "secrets_schema": null,
-        "source_url": "https://github.com/StanoVo/somes-pieces-sv/tree/main/pieces/PreprocessSolargisPiece"
+        "source_url": "https://github.com/StanoVo/some_pieces_no_fork/tree/main/pieces/PreprocessSolargisPiece"
     },
     "EvaluateAndPlotPiece": {
         "name": "EvaluateAndPlotPiece",
@@ -79,33 +82,32 @@
             "dockerfile": null,
             "requirements_file": null
         },
-        "tags": [],
+        "tags": [
+            "Solargis"
+        ],
         "style": {
-            "node_label": "Piece",
+            "node_label": "Evaluate And Plot Piece",
             "node_type": "default",
             "node_style": {
                 "backgroundColor": "#ebebeb"
             },
             "useIcon": true,
-            "icon_class_name": "fa-solid fa-circle",
+            "icon_class_name": "fa-solid:database",
             "iconStyle": {
                 "cursor": "pointer"
             }
         },
-        "outputs": {
-            "r2": "float",
-            "message": "str",
-            "mae": "float",
-            "metrics_file": "str",
-            "plot_file": "str"
-        },
-        "dependencies_group": "0",
         "description": "Evaluates model and generates plots",
-        "inputs": {
-            "data_path": "str",
-            "metrics_out": "str",
-            "plot_out": "str",
-            "model_path": "str"
+        "dependencies_group": "0",
+        "container_resources": {
+            "requests": {
+                "cpu": 100,
+                "memory": 128
+            },
+            "limits": {
+                "cpu": 500,
+                "memory": 512
+            }
         },
         "input_schema": {
             "properties": {
@@ -169,7 +171,7 @@
             "type": "object"
         },
         "secrets_schema": null,
-        "source_url": "https://github.com/StanoVo/somes-pieces-sv/tree/main/pieces/EvaluateAndPlotPiece"
+        "source_url": "https://github.com/StanoVo/some_pieces_no_fork/tree/main/pieces/EvaluateAndPlotPiece"
     },
     "TrainXGBoostPiece": {
         "name": "TrainXGBoostPiece",
@@ -177,30 +179,32 @@
             "dockerfile": null,
             "requirements_file": null
         },
-        "tags": [],
+        "tags": [
+            "XGBoost"
+        ],
         "style": {
-            "node_label": "Piece",
+            "node_label": "Train XGBoost Piece",
             "node_type": "default",
             "node_style": {
                 "backgroundColor": "#ebebeb"
             },
             "useIcon": true,
-            "icon_class_name": "fa-solid fa-circle",
+            "icon_class_name": "fa-solid:database",
             "iconStyle": {
                 "cursor": "pointer"
             }
         },
-        "outputs": {
-            "model_file": "str",
-            "message": "str",
-            "training_log": "str"
-        },
-        "dependencies_group": "0",
         "description": "Train XGBoost model",
-        "inputs": {
-            "data_path": "str",
-            "model_out": "str",
-            "log_out": "str"
+        "dependencies_group": "0",
+        "container_resources": {
+            "requests": {
+                "cpu": 100,
+                "memory": 128
+            },
+            "limits": {
+                "cpu": 500,
+                "memory": 512
+            }
         },
         "input_schema": {
             "properties": {
@@ -249,7 +253,7 @@
             "type": "object"
         },
         "secrets_schema": null,
-        "source_url": "https://github.com/StanoVo/somes-pieces-sv/tree/main/pieces/TrainXGBoostPiece"
+        "source_url": "https://github.com/StanoVo/some_pieces_no_fork/tree/main/pieces/TrainXGBoostPiece"
     },
     "RegisterModelPiece": {
         "name": "RegisterModelPiece",
@@ -257,31 +261,32 @@
             "dockerfile": null,
             "requirements_file": null
         },
-        "tags": [],
+        "tags": [
+            "Register model piece"
+        ],
         "style": {
-            "node_label": "Piece",
+            "node_label": "Register Model Piece",
             "node_type": "default",
             "node_style": {
                 "backgroundColor": "#ebebeb"
             },
             "useIcon": true,
-            "icon_class_name": "fa-solid fa-circle",
+            "icon_class_name": "fa-solid:database",
             "iconStyle": {
                 "cursor": "pointer"
             }
         },
-        "outputs": {
-            "message": "str",
-            "model_version_id": "str",
-            "registry_url": "str"
-        },
-        "dependencies_group": "0",
         "description": "Register model in Domino",
-        "inputs": {
-            "metrics_path": "str",
-            "name": "str",
-            "description": "str",
-            "model_path": "str"
+        "dependencies_group": "0",
+        "container_resources": {
+            "requests": {
+                "cpu": 100,
+                "memory": 128
+            },
+            "limits": {
+                "cpu": 500,
+                "memory": 512
+            }
         },
         "input_schema": {
             "properties": {
@@ -342,7 +347,7 @@
             "type": "object"
         },
         "secrets_schema": null,
-        "source_url": "https://github.com/StanoVo/somes-pieces-sv/tree/main/pieces/RegisterModelPiece"
+        "source_url": "https://github.com/StanoVo/some_pieces_no_fork/tree/main/pieces/RegisterModelPiece"
     },
     "FetchSolargisDataPiece": {
         "name": "FetchSolargisDataPiece",
@@ -351,7 +356,7 @@
             "requirements_file": null
         },
         "tags": [
-            "FetchSolargisDataPiece"
+            "Solargis"
         ],
         "style": {
             "node_label": "Fetch Solargis Data Piece",
@@ -365,15 +370,17 @@
                 "cursor": "pointer"
             }
         },
-        "outputs": {
-            "downloaded_file": "str",
-            "message": "str"
-        },
-        "dependencies_group": "0",
         "description": "Downloads Solargis data",
-        "inputs": {
-            "s3_path": "str",
-            "output_path": "str"
+        "dependencies_group": "0",
+        "container_resources": {
+            "requests": {
+                "cpu": 100,
+                "memory": 128
+            },
+            "limits": {
+                "cpu": 500,
+                "memory": 512
+            }
         },
         "input_schema": {
             "properties": {
@@ -412,7 +419,7 @@
             "type": "object"
         },
         "secrets_schema": null,
-        "source_url": "https://github.com/StanoVo/somes-pieces-sv/tree/main/pieces/FetchSolargisDataPiece"
+        "source_url": "https://github.com/StanoVo/some_pieces_no_fork/tree/main/pieces/FetchSolargisDataPiece"
     },
     "RunSolarForecastPiece": {
         "name": "RunSolarForecastPiece",
@@ -420,31 +427,32 @@
             "dockerfile": null,
             "requirements_file": null
         },
-        "tags": [],
+        "tags": [
+            "Solar forecast"
+        ],
         "style": {
-            "node_label": "Piece",
+            "node_label": "Run Solar Forecast Piece",
             "node_type": "default",
             "node_style": {
                 "backgroundColor": "#ebebeb"
             },
             "useIcon": true,
-            "icon_class_name": "fa-solid fa-circle",
+            "icon_class_name": "fa-solid:database",
             "iconStyle": {
                 "cursor": "pointer"
             }
         },
-        "outputs": {
-            "message": "str",
-            "forecast_file": "str",
-            "plot_file": "str"
-        },
-        "dependencies_group": "0",
         "description": "Generates next-day solar forecast",
-        "inputs": {
-            "features_csv": "str",
-            "model_path": "str",
-            "output_csv": "str",
-            "output_plot": "str"
+        "dependencies_group": "0",
+        "container_resources": {
+            "requests": {
+                "cpu": 100,
+                "memory": 128
+            },
+            "limits": {
+                "cpu": 500,
+                "memory": 512
+            }
         },
         "input_schema": {
             "properties": {
@@ -498,7 +506,7 @@
             "type": "object"
         },
         "secrets_schema": null,
-        "source_url": "https://github.com/StanoVo/somes-pieces-sv/tree/main/pieces/RunSolarForecastPiece"
+        "source_url": "https://github.com/StanoVo/some_pieces_no_fork/tree/main/pieces/RunSolarForecastPiece"
     },
     "NotifyTeamPiece": {
         "name": "NotifyTeamPiece",
@@ -508,27 +516,28 @@
         },
         "tags": [],
         "style": {
-            "node_label": "Piece",
+            "node_label": "Notify Team Piece",
             "node_type": "default",
             "node_style": {
                 "backgroundColor": "#ebebeb"
             },
             "useIcon": true,
-            "icon_class_name": "fa-solid fa-circle",
+            "icon_class_name": "fa-solid:database",
             "iconStyle": {
                 "cursor": "pointer"
             }
         },
-        "outputs": {
-            "notification_sent": "bool",
-            "message": "str",
-            "recipients": "str"
-        },
-        "dependencies_group": "0",
         "description": "Send notifications",
-        "inputs": {
-            "webhook_url": "str",
-            "metrics_path": "str"
+        "dependencies_group": "0",
+        "container_resources": {
+            "requests": {
+                "cpu": 100,
+                "memory": 128
+            },
+            "limits": {
+                "cpu": 500,
+                "memory": 512
+            }
         },
         "input_schema": {
             "properties": {
@@ -579,6 +588,6 @@
             "type": "object"
         },
         "secrets_schema": null,
-        "source_url": "https://github.com/StanoVo/somes-pieces-sv/tree/main/pieces/NotifyTeamPiece"
+        "source_url": "https://github.com/StanoVo/some_pieces_no_fork/tree/main/pieces/NotifyTeamPiece"
     }
 }
