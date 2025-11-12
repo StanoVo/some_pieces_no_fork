@@ -383,37 +383,41 @@
             }
         },
         "input_schema": {
+            "description": "Fetch Solargis Data Piece Input Model",
             "properties": {
-                "s3_path": {
-                    "title": "S3 Path",
+                "data_input_path": {
+                    "default": "/home/shared_storage/input_data/InputFile.doc",
+                    "description": "The path to input meteo data files",
+                    "title": "Path to input data files",
                     "type": "string"
                 },
-                "output_path": {
-                    "title": "Output Path",
+                "data_output_path": {
+                    "default": "/home/shared_storage/data/File.csvc",
+                    "description": "The path to output meteo data file",
+                    "title": "Path to output data file",
                     "type": "string"
                 }
             },
-            "required": [
-                "s3_path",
-                "output_path"
-            ],
             "title": "InputModel",
             "type": "object"
         },
         "output_schema": {
+            "description": "Fetch Solargis Data Piece Output Model",
             "properties": {
                 "message": {
+                    "default": "",
+                    "description": "Output message to log",
                     "title": "Message",
                     "type": "string"
                 },
-                "downloaded_file": {
-                    "title": "Downloaded File",
+                "file_path": {
+                    "description": "The path & file name to the output CSV file",
+                    "title": "File Path",
                     "type": "string"
                 }
             },
             "required": [
-                "message",
-                "downloaded_file"
+                "file_path"
             ],
             "title": "OutputModel",
             "type": "object"
