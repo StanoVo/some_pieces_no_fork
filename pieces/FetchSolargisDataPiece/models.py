@@ -4,15 +4,15 @@ class InputModel(BaseModel):
     """
     Fetch Solargis Data Piece Input Model
     """
-    data_input_path: str = Field(
+    input_path: str = Field(
         title="Path to input data files",
-        default='/home/shared_storage/input_data/InputFile.doc',
+        default='/home/shared_storage/input_data/InputFile.docx',
         description="The path to input meteo data files"
     )    
 
-    data_output_path: str = Field(
+    output_path: str = Field(
         title="Path to output data file",
-        default='/home/shared_storage/data/File.csvc',
+        default='/home/shared_storage/data/raw_data.csv',
         description="The path to output meteo data file"
     )
     
@@ -26,5 +26,5 @@ class OutputModel(BaseModel):
     )
 
     file_path: str = Field(
-        description="The path & file name to the output CSV file"
+        description="The path to the output CSV file"
     )

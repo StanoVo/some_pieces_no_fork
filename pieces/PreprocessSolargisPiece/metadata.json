@@ -2,6 +2,9 @@
     "name": "PreprocessSolargisPiece",
     "description": "Preprocess Solargis data",
     "dependencies_group":  "0",
+    "dependency": {
+        "requirements_file": "requirements_0.txt"
+    },
     "container_resources": {
         "requests": {
             "cpu": 100,

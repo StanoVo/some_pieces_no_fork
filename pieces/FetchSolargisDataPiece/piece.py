@@ -13,7 +13,7 @@ class FetchSolargisDataPiece(BasePiece):
         csv_started = False
 
         # Read the Word document
-        input_data_file = Path(input_data.data_input_path)
+        input_data_file = Path(input_data.input_path)
         doc = Document(input_data_file)
         csv_data = []
         csv_started = False
@@ -34,7 +34,7 @@ class FetchSolargisDataPiece(BasePiece):
         if csv_data:
             df = pd.DataFrame(csv_data)
             message = f"Doc with data readed successfully"
-            output_data_file = Path(input_data.data_output_path) 
+            output_data_file = Path(input_data.output_path) 
             df.to_csv(output_data_file, index=False, header=False)
             
         # Set display result
