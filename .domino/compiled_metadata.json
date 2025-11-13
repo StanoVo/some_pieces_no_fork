@@ -3,7 +3,7 @@
         "name": "PreprocessSolargisPiece",
         "dependency": {
             "dockerfile": null,
-            "requirements_file": null
+            "requirements_file": "requirements_0.txt"
         },
         "tags": [
             "Solargis"
@@ -35,24 +35,26 @@
         "input_schema": {
             "properties": {
                 "input_path": {
-                    "title": "Input Path",
+                    "default": "/home/shared_storage/data/raw_solargis.csv",
+                    "description": "The path to the input Solargis raw data file ",
+                    "title": "Path to raw data file",
                     "type": "string"
                 },
                 "output_path": {
-                    "title": "Output Path",
+                    "default": "/home/shared_storage/data/processed_solargis.csv",
+                    "description": "The path to the output processed Solargis data file",
+                    "title": "Path to output data file",
                     "type": "string"
                 }
             },
-            "required": [
-                "input_path",
-                "output_path"
-            ],
             "title": "InputModel",
             "type": "object"
         },
         "output_schema": {
             "properties": {
                 "message": {
+                    "default": "",
+                    "description": "Output message to log",
                     "title": "Message",
                     "type": "string"
                 },
@@ -61,12 +63,12 @@
                     "type": "integer"
                 },
                 "output_file": {
+                    "description": "The path to the output CSV file",
                     "title": "Output File",
                     "type": "string"
                 }
             },
             "required": [
-                "message",
                 "processed_rows",
                 "output_file"
             ],
@@ -385,14 +387,14 @@
         "input_schema": {
             "description": "Fetch Solargis Data Piece Input Model",
             "properties": {
-                "data_input_path": {
-                    "default": "/home/shared_storage/input_data/InputFile.doc",
+                "input_path": {
+                    "default": "/home/shared_storage/input_data/InputFile.docx",
                     "description": "The path to input meteo data files",
                     "title": "Path to input data files",
                     "type": "string"
                 },
-                "data_output_path": {
-                    "default": "/home/shared_storage/data/File.csvc",
+                "output_path": {
+                    "default": "/home/shared_storage/data/raw_data.csv",
                     "description": "The path to output meteo data file",
                     "title": "Path to output data file",
                     "type": "string"
@@ -411,7 +413,7 @@
                     "type": "string"
                 },
                 "file_path": {
-                    "description": "The path & file name to the output CSV file",
+                    "description": "The path to the output CSV file",
                     "title": "File Path",
                     "type": "string"
                 }

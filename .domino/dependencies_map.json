@@ -2,10 +2,21 @@
     "group0": {
         "dependency": {
             "dockerfile": null,
-            "requirements_file": null
+            "requirements_file": "requirements_0.txt"
         },
         "pieces": [
             "PreprocessSolargisPiece",
+            "FetchSolargisDataPiece"
+        ],
+        "secrets": [],
+        "source_image": "ghcr.io/stanovo/some_pieces_no_fork:0.1.5-group0"
+    },
+    "group1": {
+        "dependency": {
+            "dockerfile": null,
+            "requirements_file": null
+        },
+        "pieces": [
             "EvaluateAndPlotPiece",
             "TrainXGBoostPiece",
             "RegisterModelPiece",
@@ -13,17 +24,6 @@
             "NotifyTeamPiece"
         ],
         "secrets": [],
-        "source_image": "ghcr.io/stanovo/some_pieces_no_fork:0.1.4-group0"
-    },
-    "group1": {
-        "dependency": {
-            "dockerfile": null,
-            "requirements_file": "requirements_0.txt"
-        },
-        "pieces": [
-            "FetchSolargisDataPiece"
-        ],
-        "secrets": [],
-        "source_image": "ghcr.io/stanovo/some_pieces_no_fork:0.1.4-group1"
+        "source_image": "ghcr.io/stanovo/some_pieces_no_fork:0.1.5-group1"
     }
 }
