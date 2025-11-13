@@ -83,10 +83,12 @@
         "name": "EvaluateAndPlotPiece",
         "dependency": {
             "dockerfile": null,
-            "requirements_file": null
+            "requirements_file": "requirements_0.txt"
         },
         "tags": [
-            "Solargis"
+            "XGBoost",
+            "Evaluation",
+            "Plotting"
         ],
         "style": {
             "node_label": "Evaluate And Plot Piece",
@@ -95,7 +97,7 @@
                 "backgroundColor": "#ebebeb"
             },
             "useIcon": true,
-            "icon_class_name": "fa-solid:database",
+            "icon_class_name": "fa-solid:chart-line",
             "iconStyle": {
                 "cursor": "pointer"
             }
@@ -115,42 +117,50 @@
         "input_schema": {
             "properties": {
                 "data_path": {
-                    "title": "Data Path",
+                    "default": "/home/shared_storage/data/DataForPrediction.csv",
+                    "description": "The path to data file for prediction",
+                    "title": "Path to data file",
                     "type": "string"
                 },
                 "model_path": {
-                    "title": "Model Path",
+                    "default": "/home/shared_storage/data/model.pkl",
+                    "description": "The path to prediction model file",
+                    "title": "Path to model file",
                     "type": "string"
                 },
                 "metrics_out": {
-                    "title": "Metrics Out",
+                    "default": "/home/shared_storage/data/metrics.json",
+                    "description": "The path to metrics output file",
+                    "title": "Path to metrics output file",
                     "type": "string"
                 },
                 "plot_out": {
-                    "title": "Plot Out",
+                    "default": "/home/shared_storage/data/comparison.png",
+                    "description": "The path to graphical prediction output file",
+                    "title": "Path to graphical prediction output file",
                     "type": "string"
                 }
             },
-            "required": [
-                "data_path",
-                "model_path",
-                "metrics_out",
-                "plot_out"
-            ],
             "title": "InputModel",
             "type": "object"
         },
         "output_schema": {
             "properties": {
                 "message": {
+                    "default": "",
+                    "description": "Output message to log",
                     "title": "Message",
                     "type": "string"
                 },
                 "metrics_file": {
+                    "default": "",
+                    "description": "The path to the metrics json file",
                     "title": "Metrics File",
                     "type": "string"
                 },
                 "plot_file": {
+                    "default": "",
+                    "description": "The path to the graphical prediction output file",
                     "title": "Plot File",
                     "type": "string"
                 },
@@ -164,9 +174,6 @@
                 }
             },
             "required": [
-                "message",
-                "metrics_file",
-                "plot_file",
                 "mae",
                 "r2"
             ],
