@@ -6,13 +6,13 @@ class InputModel(BaseModel):
     """
     input_path: str = Field(
         title="Path to input data files",
-        default='/home/shared_storage/input_data/InputFile.docx',
+        default='/home/shared_storage/input_data/InputSolargisFile.docx',
         description="The path to input meteo data files"
     )    
 
     output_path: str = Field(
         title="Path to output data file",
-        default='/home/shared_storage/data/raw_data.csv',
+        default='/home/shared_storage/data/raw_solargis.csv',
         description="The path to output meteo data file"
     )
     

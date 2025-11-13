@@ -25,7 +25,8 @@ class PreprocessSolargisPiece(BasePiece):
         df['hour_of_day'] = df['datetime'].dt.hour
     
         # Save processed data
-        df.to_csv(input_data.output_path, index=False)
+        output_data_file = Path(input_data.output_path) 
+        df.to_csv(output_data_file, index=False)
         processed_rows = len(df)
     
         message = f"[SUCCESS] Preprocessed data saved to {input_data.output_path}"
@@ -33,23 +34,14 @@ class PreprocessSolargisPiece(BasePiece):
         # Set display result
         self.display_result = {
             "file_type": "csv",
-            "file_path": str(input_data.output_path)
+            "file_path": str(output_data_file)
         }
     
         return OutputModel(
             message = message,
             processed_rows = processed_rows,
-            output_file = input_data.output_path
+            file_path = str(output_data_file)
         )
-
-# if __name__ == "__main__":
-#     # For testing purposes
-#     input_data = InputModel(
-#         input_path="/mnt/artifacts/raw_data.csv",
-#         output_path="/mnt/artifacts/processed_data.csv"
-#     )
-#     result = main(input_data)
-#     print(result)
 
 # import pandas as pd
 # import numpy as np
