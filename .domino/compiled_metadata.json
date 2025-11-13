@@ -220,7 +220,7 @@
                     "title": "Path to preprocessed data file",
                     "type": "string"
                 },
-                "model_out": {
+                "mod_out": {
                     "default": "/home/shared_storage/data/model.pkl",
                     "description": "The path to Model file",
                     "title": "Path to model file",
@@ -245,9 +245,9 @@
                     "title": "Message",
                     "type": "string"
                 },
-                "model_file_path": {
+                "mod_file_path": {
                     "description": "The path to the model file",
-                    "title": "Model File Path",
+                    "title": "Mod File Path",
                     "type": "string"
                 },
                 "training_log": {
@@ -257,7 +257,7 @@
                 }
             },
             "required": [
-                "model_file_path",
+                "mod_file_path",
                 "training_log"
             ],
             "title": "OutputModel",
