@@ -39,8 +39,8 @@ class TrainXGBoostPiece(BasePiece):
 
         return OutputModel(
             message=message,
-            model_file=input_data.mod_out,
-            training_log=input_data.log_out
+            mod_file_path=input_data.mod_out,
+            train_log_path=input_data.log_out
         )
 
 # import pandas as pd

@@ -31,6 +31,6 @@ class OutputModel(BaseModel):
     mod_file_path: str = Field(
         description="The path to the model file"
     )
-    training_log: str= Field(
+    train_log_path: str= Field(
         description="The path to the training log file"
     )
