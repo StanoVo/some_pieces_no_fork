@@ -6,10 +6,11 @@
         },
         "pieces": [
             "PreprocessSolargisPiece",
+            "TrainXGBoostPiece",
             "FetchSolargisDataPiece"
         ],
         "secrets": [],
-        "source_image": "ghcr.io/stanovo/some_pieces_no_fork:0.1.5-group0"
+        "source_image": "ghcr.io/stanovo/some_pieces_no_fork:0.1.6-group0"
     },
     "group1": {
         "dependency": {
@@ -18,12 +19,11 @@
         },
         "pieces": [
             "EvaluateAndPlotPiece",
-            "TrainXGBoostPiece",
             "RegisterModelPiece",
             "RunSolarForecastPiece",
             "NotifyTeamPiece"
         ],
         "secrets": [],
-        "source_image": "ghcr.io/stanovo/some_pieces_no_fork:0.1.5-group1"
+        "source_image": "ghcr.io/stanovo/some_pieces_no_fork:0.1.6-group1"
     }
 }

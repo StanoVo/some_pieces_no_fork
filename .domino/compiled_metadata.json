@@ -33,6 +33,7 @@
             }
         },
         "input_schema": {
+            "description": "Preprocess Solargis Data Piece Input Model",
             "properties": {
                 "input_path": {
                     "default": "/home/shared_storage/data/raw_solargis.csv",
@@ -58,19 +59,19 @@
                     "title": "Message",
                     "type": "string"
                 },
+                "file_path": {
+                    "description": "The path to the output CSV file",
+                    "title": "File Path",
+                    "type": "string"
+                },
                 "processed_rows": {
                     "title": "Processed Rows",
                     "type": "integer"
-                },
-                "output_file": {
-                    "description": "The path to the output CSV file",
-                    "title": "Output File",
-                    "type": "string"
                 }
             },
             "required": [
-                "processed_rows",
-                "output_file"
+                "file_path",
+                "processed_rows"
             ],
             "title": "OutputModel",
             "type": "object"
@@ -179,10 +180,12 @@
         "name": "TrainXGBoostPiece",
         "dependency": {
             "dockerfile": null,
-            "requirements_file": null
+            "requirements_file": "requirements_0.txt"
         },
         "tags": [
-            "XGBoost"
+            "XGBoost",
+            "Model Training",
+            "Solargis"
         ],
         "style": {
             "node_label": "Train XGBoost Piece",
@@ -191,7 +194,7 @@
                 "backgroundColor": "#ebebeb"
             },
             "useIcon": true,
-            "icon_class_name": "fa-solid:database",
+            "icon_class_name": "fa-solid:brain",
             "iconStyle": {
                 "cursor": "pointer"
             }
@@ -209,46 +212,52 @@
             }
         },
         "input_schema": {
+            "description": "Train XGBoost Piece Input Model",
             "properties": {
                 "data_path": {
-                    "title": "Data Path",
+                    "default": "/home/shared_storage/data/processed_solargis.csv",
+                    "description": "The path to preprocessed Solargis data file",
+                    "title": "Path to preprocessed data file",
                     "type": "string"
                 },
                 "model_out": {
-                    "title": "Model Out",
+                    "default": "/home/shared_storage/data/model.pkl",
+                    "description": "The path to Model file",
+                    "title": "Path to model file",
                     "type": "string"
                 },
                 "log_out": {
-                    "title": "Log Out",
+                    "default": "/home/shared_storage/data/training_log.txt",
+                    "description": "The path to training log file",
+                    "title": "Path to model training log file",
                     "type": "string"
                 }
             },
-            "required": [
-                "data_path",
-                "model_out",
-                "log_out"
-            ],
             "title": "InputModel",
             "type": "object"
         },
         "output_schema": {
+            "description": "Train XGBoost Piece Output Model",
             "properties": {
                 "message": {
+                    "default": "",
+                    "description": "Output message to log",
                     "title": "Message",
                     "type": "string"
                 },
-                "model_file": {
-                    "title": "Model File",
+                "model_file_path": {
+                    "description": "The path to the model file",
+                    "title": "Model File Path",
                     "type": "string"
                 },
                 "training_log": {
+                    "description": "The path to the training log file",
                     "title": "Training Log",
                     "type": "string"
                 }
             },
             "required": [
-                "message",
-                "model_file",
+                "model_file_path",
                 "training_log"
             ],
             "title": "OutputModel",
@@ -388,13 +397,13 @@
             "description": "Fetch Solargis Data Piece Input Model",
             "properties": {
                 "input_path": {
-                    "default": "/home/shared_storage/input_data/InputFile.docx",
+                    "default": "/home/shared_storage/input_data/InputSolargisFile.docx",
                     "description": "The path to input meteo data files",
                     "title": "Path to input data files",
                     "type": "string"
                 },
                 "output_path": {
-                    "default": "/home/shared_storage/data/raw_data.csv",
+                    "default": "/home/shared_storage/data/raw_solargis.csv",
                     "description": "The path to output meteo data file",
                     "title": "Path to output data file",
                     "type": "string"
