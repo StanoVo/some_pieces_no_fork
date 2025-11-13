@@ -7,11 +7,11 @@ import os
 from sklearn.metrics import mean_absolute_error, r2_score
 from xgboost import XGBRegressor
 
-class PreprocessSolargisPiece(BasePiece):
+class TrainXGBoostPiece(BasePiece):
     
     def piece_function(self, input_data: InputModel):
 
-        #print(f"[INFO] Training model using data: {input_model.data_path}")
+        #print(f"[INFO] Training model using data: {input_data.data_path}")
         
         # Load data
         df = pd.read_csv(input_data.data_path)
@@ -29,17 +29,17 @@ class PreprocessSolargisPiece(BasePiece):
         model.fit(X, y)
         
         # Save model
-        joblib.dump(model, input_data.model_out)
+        joblib.dump(model, input_data.mod_out)
         
         # Save training log
         with open(input_data.log_out, "w") as f:
             f.write(f"Model trained at {pd.Timestamp.now()}")
         
-        message=f"Model trained and saved successfully to {input_data.model_out}"
+        message=f"Model trained and saved successfully to {input_data.mod_out}"
 
         return OutputModel(
             message=message,
-            model_file=input_data.model_out,
+            model_file=input_data.mod_out,
             training_log=input_data.log_out
         )
 
