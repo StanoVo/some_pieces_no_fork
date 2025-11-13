@@ -250,15 +250,15 @@
                     "title": "Mod File Path",
                     "type": "string"
                 },
-                "training_log": {
+                "train_log_path": {
                     "description": "The path to the training log file",
-                    "title": "Training Log",
+                    "title": "Train Log Path",
                     "type": "string"
                 }
             },
             "required": [
                 "mod_file_path",
-                "training_log"
+                "train_log_path"
             ],
             "title": "OutputModel",
             "type": "object"
