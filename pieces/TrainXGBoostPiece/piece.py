@@ -6,7 +6,6 @@ import joblib
 import os
 from sklearn.metrics import mean_absolute_error, r2_score
 from xgboost import XGBRegressor
-from models import InputModel, OutputModel
 
 class PreprocessSolargisPiece(BasePiece):
     
