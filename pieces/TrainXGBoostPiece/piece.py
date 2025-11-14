@@ -31,7 +31,7 @@ class TrainXGBoostPiece(BasePiece):
         # Save model
         joblib.dump(model, input_data.mod_out)
 
-        print(f"[SUCCESS] Model saved to {input_model.model_out}")
+        print(f"[SUCCESS] Model saved to {input_data.model_out}")
         
         # Save training log
         with open(input_data.log_out, "w") as f:
