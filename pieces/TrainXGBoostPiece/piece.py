@@ -29,7 +29,7 @@ class TrainXGBoostPiece(BasePiece):
         model.fit(X, y)
         
         # Save model
-        joblib.dump(model, input_data.mod_out)
+        joblib.dump(model, input_data.model_out)
 
         print(f"[SUCCESS] Model saved to {input_data.model_out}")
         
@@ -37,12 +37,12 @@ class TrainXGBoostPiece(BasePiece):
         with open(input_data.log_out, "w") as f:
             f.write(f"Model trained at {pd.Timestamp.now()}")
         
-        message=f"Model trained and saved successfully to {input_data.mod_out}"
+        message=f"Model trained and saved successfully to {input_data.model_out}"
         print(message)
 
         return OutputModel(
             message=message,
-            mod_file_path=input_data.mod_out,
+            model_file_path=input_data.model_out,
             train_log_path=input_data.log_out
         )
 
