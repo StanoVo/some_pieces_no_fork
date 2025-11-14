@@ -32,7 +32,7 @@ class EvaluateAndPlotPiece(BasePiece):
         metrics = {
             "MAE_kW": round(mae, 4),
             "R2": round(r2, 4),
-            "samples": len(y_true)
+            "samples": len(y_true)            
         }
         
         with open(input_data.metrics_out, "w") as f:

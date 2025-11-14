@@ -11,7 +11,7 @@ class TrainXGBoostPiece(BasePiece):
     
     def piece_function(self, input_data: InputModel):
 
-        #print(f"[INFO] Training model using data: {input_data.data_path}")
+        print(f"[INFO] Training model using data: {input_data.data_path}")
         
         # Load data
         df = pd.read_csv(input_data.data_path)
@@ -30,12 +30,15 @@ class TrainXGBoostPiece(BasePiece):
         
         # Save model
         joblib.dump(model, input_data.mod_out)
+
+        print(f"[SUCCESS] Model saved to {input_model.model_out}")
         
         # Save training log
         with open(input_data.log_out, "w") as f:
             f.write(f"Model trained at {pd.Timestamp.now()}")
         
         message=f"Model trained and saved successfully to {input_data.mod_out}"
+        print(message)
 
         return OutputModel(
             message=message,

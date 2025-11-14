@@ -9,6 +9,8 @@ class FetchSolargisDataPiece(BasePiece):
     
     def piece_function(self, input_data: InputModel):
 
+        print(f"[INFO] Fetching data from {input_data.input_path} → {input_data.output_path}")
+
         csv_data = []
         csv_started = False
 
@@ -33,7 +35,8 @@ class FetchSolargisDataPiece(BasePiece):
         # Convert to DataFrame and write to CSV
         if csv_data:
             df = pd.DataFrame(csv_data)
-            message = f"Doc with data readed successfully"
+            message = f"Doc with data readed successfully, {len(df)} rows found."
+            print(f"[SUCCESS] {message}")
             output_data_file = Path(input_data.output_path) 
             df.to_csv(output_data_file, index=False, header=False)
             
