@@ -117,14 +117,14 @@
         "input_schema": {
             "properties": {
                 "data_path": {
-                    "default": "/home/shared_storage/data/DataForPrediction.csv",
+                    "default": "/home/shared_storage/data/DataForComparison.csv",
                     "description": "The path to data file for prediction",
                     "title": "Path to data file",
                     "type": "string"
                 },
                 "model_path": {
                     "default": "/home/shared_storage/data/model.pkl",
-                    "description": "The path to prediction model file",
+                    "description": "The path to forecast model file",
                     "title": "Path to model file",
                     "type": "string"
                 },
@@ -136,8 +136,8 @@
                 },
                 "plot_out": {
                     "default": "/home/shared_storage/data/comparison.png",
-                    "description": "The path to graphical prediction output file",
-                    "title": "Path to graphical prediction output file",
+                    "description": "The path to graphical comparison output file",
+                    "title": "Path to graphical comparison output file",
                     "type": "string"
                 }
             },
@@ -160,7 +160,7 @@
                 },
                 "plot_file": {
                     "default": "",
-                    "description": "The path to the graphical prediction output file",
+                    "description": "The path to the graphical comparison output file",
                     "title": "Plot File",
                     "type": "string"
                 },
