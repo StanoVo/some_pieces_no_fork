@@ -1,5 +1,5 @@
 ﻿from pydantic import BaseModel, Field
-from typing import Optional
+# from typing import Optional
 
 class InputModel(BaseModel):
     model_path: str = Field(
@@ -16,7 +16,7 @@ class InputModel(BaseModel):
         title="Model name", 
         default="SolarForecastModel"
     ) 
-    description: Optional[str] = Field(
+    description: str = Field(
         title="Model description",
         default="XGBoost model for solar forecasting"
     )
