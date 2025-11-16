@@ -277,7 +277,7 @@
         "name": "RegisterModelPiece",
         "dependency": {
             "dockerfile": null,
-            "requirements_file": null
+            "requirements_file": "requirements_0.txt"
         },
         "tags": [
             "Register model piece"
@@ -289,7 +289,7 @@
                 "backgroundColor": "#ebebeb"
             },
             "useIcon": true,
-            "icon_class_name": "fa-solid:database",
+            "icon_class_name": "fa-solid:database-plus",
             "iconStyle": {
                 "cursor": "pointer"
             }
@@ -309,58 +309,52 @@
         "input_schema": {
             "properties": {
                 "model_path": {
-                    "title": "Model Path",
+                    "default": "/home/shared_storage/data/model.pkl",
+                    "description": "The path to forecast model file",
+                    "title": "Path to model file",
                     "type": "string"
                 },
                 "metrics_path": {
-                    "title": "Metrics Path",
+                    "default": "/home/shared_storage/data/metrics.json",
+                    "description": "The path to metrics file",
+                    "title": "Path to metrics file",
                     "type": "string"
                 },
                 "name": {
-                    "title": "Name",
+                    "default": "SolarForecastModel",
+                    "title": "Model name",
                     "type": "string"
                 },
                 "description": {
-                    "anyOf": [
-                        {
-                            "type": "string"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ],
-                    "default": "",
-                    "title": "Description"
+                    "default": "XGBoost model for solar forecasting",
+                    "title": "Model description",
+                    "type": "string"
                 }
             },
-            "required": [
-                "model_path",
-                "metrics_path",
-                "name"
-            ],
             "title": "InputModel",
             "type": "object"
         },
         "output_schema": {
             "properties": {
                 "message": {
+                    "default": "",
+                    "description": "Output message to log",
                     "title": "Message",
                     "type": "string"
                 },
                 "model_version_id": {
+                    "default": "",
+                    "description": "Version ID of the registered model",
                     "title": "Model Version Id",
                     "type": "string"
                 },
                 "registry_url": {
+                    "default": "",
+                    "description": "The URL to the model registry entry",
                     "title": "Registry Url",
                     "type": "string"
                 }
             },
-            "required": [
-                "message",
-                "model_version_id",
-                "registry_url"
-            ],
             "title": "OutputModel",
             "type": "object"
         },
@@ -447,10 +441,12 @@
         "name": "RunSolarForecastPiece",
         "dependency": {
             "dockerfile": null,
-            "requirements_file": null
+            "requirements_file": "requirements_0.txt"
         },
         "tags": [
-            "Solar forecast"
+            "Solar",
+            "forecast",
+            "Renewable Energy"
         ],
         "style": {
             "node_label": "Run Solar Forecast Piece",
@@ -459,7 +455,7 @@
                 "backgroundColor": "#ebebeb"
             },
             "useIcon": true,
-            "icon_class_name": "fa-solid:database",
+            "icon_class_name": "fa-solid:sun",
             "iconStyle": {
                 "cursor": "pointer"
             }
@@ -479,51 +475,54 @@
         "input_schema": {
             "properties": {
                 "model_path": {
-                    "title": "Model Path",
+                    "default": "/home/shared_storage/data/model.pkl",
+                    "description": "The path to forecast model file",
+                    "title": "Path to model file",
                     "type": "string"
                 },
                 "features_csv": {
-                    "title": "Features Csv",
+                    "default": "/home/shared_storage/data/forecast_features.csv",
+                    "description": "The path to CSV file containing features for forecast",
+                    "title": "Path to features CSV file",
                     "type": "string"
                 },
                 "output_csv": {
-                    "title": "Output Csv",
+                    "default": "/home/shared_storage/data/solar_forecast.csv",
+                    "description": "The path to forecast CSV output file",
+                    "title": "Path to forecast CSV output file",
                     "type": "string"
                 },
                 "output_plot": {
-                    "title": "Output Plot",
+                    "default": "/home/shared_storage/data/forecast.png",
+                    "description": "The path to graphical forecast output file",
+                    "title": "Path to graphical forecast output file",
                     "type": "string"
                 }
             },
-            "required": [
-                "model_path",
-                "features_csv",
-                "output_csv",
-                "output_plot"
-            ],
             "title": "InputModel",
             "type": "object"
         },
         "output_schema": {
             "properties": {
                 "message": {
+                    "default": "",
+                    "description": "Output message to log",
                     "title": "Message",
                     "type": "string"
                 },
                 "forecast_file": {
+                    "default": "",
+                    "description": "The path to the forecast CSV output file",
                     "title": "Forecast File",
                     "type": "string"
                 },
                 "plot_file": {
+                    "default": "",
+                    "description": "The path to the graphical comparison output file",
                     "title": "Plot File",
                     "type": "string"
                 }
             },
-            "required": [
-                "message",
-                "forecast_file",
-                "plot_file"
-            ],
             "title": "OutputModel",
             "type": "object"
         },
