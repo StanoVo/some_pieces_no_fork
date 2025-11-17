@@ -10,20 +10,10 @@
             "TrainXGBoostPiece",
             "RegisterModelPiece",
             "FetchSolargisDataPiece",
-            "RunSolarForecastPiece"
-        ],
-        "secrets": [],
-        "source_image": "ghcr.io/stanovo/some_pieces_no_fork:0.2.8-group0"
-    },
-    "group1": {
-        "dependency": {
-            "dockerfile": null,
-            "requirements_file": null
-        },
-        "pieces": [
+            "RunSolarForecastPiece",
             "NotifyTeamPiece"
         ],
         "secrets": [],
-        "source_image": "ghcr.io/stanovo/some_pieces_no_fork:0.2.8-group1"
+        "source_image": "ghcr.io/stanovo/some_pieces_no_fork:0.2.9-group0"
     }
 }
