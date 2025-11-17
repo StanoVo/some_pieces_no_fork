@@ -1,22 +1,30 @@
+from __future__ import annotations
+from typing import TYPE_CHECKING
 from domino.base_piece import BasePiece
 from .models import InputModel, OutputModel
 import json
 import os
-from domino import Model, ModelVersion
+
+if TYPE_CHECKING:
+    from domino import Model, ModelVersion
 
 class RegisterModelPiece(BasePiece):
     
     def piece_function(self, input_data: InputModel):
+        try:
+            from domino import Model, ModelVersion
+        except Exception:
+            from .registry import Model, ModelVersion
 
         print(f"[INFO] Registering model: {input_data.name}")
-    
+
         # Load metrics
         with open(input_data.metrics_path) as f:
             metrics = json.load(f)
-    
+
         # Create/get model
         model = Model.get_or_create(name=input_data.name, description=input_data.description or "")
-    
+
         # Register version
         version = ModelVersion.create(
             model=model,
@@ -29,11 +37,11 @@ class RegisterModelPiece(BasePiece):
             },
             description=f"Daily retrain {os.getenv('DOMINO_RUN_START_TIME', 'unknown')}"
         )
-    
+
         registry_url = f"https://your-domino-url/models/{model.id}/versions/{version.id}"
-    
+
         print(f"[SUCCESS] Model registered. Version ID: {version.id}")
-    
+
         return OutputModel(
             message=f"Model registered successfully with version {version.id}",
             model_version_id=version.id,
