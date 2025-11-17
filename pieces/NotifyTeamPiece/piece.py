@@ -8,16 +8,15 @@ from email.mime.multipart import MIMEMultipart
 import requests
 
 class NotifyTeamPiece(BasePiece):
-
     
-    def send_email(metrics: dict) -> bool:
+    def send_email(self, metrics: dict):
 
         # Email configuration from environment variables
         smtp_server = os.getenv("SMTP_SERVER", "smtp.gmail.com")
         smtp_port = int(os.getenv("SMTP_PORT", "587"))
         sender_email = os.getenv("SENDER_EMAIL")
         sender_password = os.getenv("SENDER_PASSWORD")
-        recipient_email = os.getenv("RECIPIENT_EMAIL", "energy-team@company.com")
+        recipient_email = os.getenv("RECIPIENT_EMAIL", "stano.vojtko@gmail.com")
         
         if not sender_email or not sender_password:
             print("[WARNING] Email credentials not configured. Skipping email.")
@@ -61,7 +60,7 @@ class NotifyTeamPiece(BasePiece):
             print(f"[ERROR] Failed to send email: {e}")
             return False
 
-    def send_slack(metrics: dict, webhook_url: str) -> bool:
+    def send_slack(self, metrics: dict, webhook_url: str) -> bool:
         payload = {
             "text": f"*Solar XGBoost pipeline completed*\n"
                     f"> *MAE*: {metrics['MAE_kW']} kW\n"
@@ -78,7 +77,7 @@ class NotifyTeamPiece(BasePiece):
             print(f"[ERROR] Failed to send Slack notification: {e}")
             return False
 
-    def piece_function(self, input_data: InputModel) -> OutputModel:
+    def piece_function(self, input_data: InputModel):
         print(f"[INFO] Sending notifications...")
         
         # Load metrics
