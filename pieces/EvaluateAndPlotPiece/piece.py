@@ -2,7 +2,7 @@ from domino.base_piece import BasePiece
 from .models import InputModel, OutputModel
 import pandas as pd
 import joblib
-import json5 as json
+import json
 import matplotlib.pyplot as plt
 from sklearn.metrics import mean_absolute_error, r2_score
 

@@ -1,6 +1,6 @@
 from domino.base_piece import BasePiece
 from .models import InputModel, OutputModel
-import json5 as json
+import json
 import os
 from domino import Model, ModelVersion
 

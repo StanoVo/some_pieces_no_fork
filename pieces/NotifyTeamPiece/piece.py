@@ -16,7 +16,7 @@ class NotifyTeamPiece(BasePiece):
         smtp_port = int(os.getenv("SMTP_PORT", "587"))
         sender_email = os.getenv("SENDER_EMAIL")
         sender_password = os.getenv("SENDER_PASSWORD")
-        recipient_email = os.getenv("RECIPIENT_EMAIL", "stano.vojtko@gmail.com")
+        recipient_email = os.getenv("RECIPIENT_EMAIL", "energy-team@company.com")
         
         if not sender_email or not sender_password:
             print("[WARNING] Email credentials not configured. Skipping email.")
