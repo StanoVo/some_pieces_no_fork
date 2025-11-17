@@ -533,7 +533,7 @@
         "name": "NotifyTeamPiece",
         "dependency": {
             "dockerfile": null,
-            "requirements_file": null
+            "requirements_file": "requirements_0.txt"
         },
         "tags": [],
         "style": {
@@ -543,7 +543,7 @@
                 "backgroundColor": "#ebebeb"
             },
             "useIcon": true,
-            "icon_class_name": "fa-solid:database",
+            "icon_class_name": "fa-solid:bell",
             "iconStyle": {
                 "cursor": "pointer"
             }
@@ -563,7 +563,9 @@
         "input_schema": {
             "properties": {
                 "metrics_path": {
-                    "title": "Metrics Path",
+                    "default": "/home/shared_storage/data/metrics.json",
+                    "description": "The path to metrics file",
+                    "title": "Path to metrics file",
                     "type": "string"
                 },
                 "webhook_url": {
@@ -575,19 +577,19 @@
                             "type": "null"
                         }
                     ],
-                    "default": null,
-                    "title": "Webhook Url"
+                    "default": "",
+                    "description": "The path to webhook url for Slack notifications",
+                    "title": "Path to webhook url"
                 }
             },
-            "required": [
-                "metrics_path"
-            ],
             "title": "InputModel",
             "type": "object"
         },
         "output_schema": {
             "properties": {
                 "message": {
+                    "default": "",
+                    "description": "Output message to log",
                     "title": "Message",
                     "type": "string"
                 },
@@ -601,7 +603,6 @@
                 }
             },
             "required": [
-                "message",
                 "notification_sent",
                 "recipients"
             ],
